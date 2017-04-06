@@ -18,9 +18,33 @@
 
 
 //Average word length in characters of the submitted text
+
 //The program should print each of these metrics in the appropriate area in the results section.
 
+$('#overallForm').submit(function(event){
+  event.preventDefault();
+  let list = $('#user-text').val();
+  let average = averageLength(list);
+  let unique = uniqueCount(list);
+  let count = wordCount(list);
+  $('.wordCount').html(`<p> Word Count: \n \t ${count}</p>`);
+  $('.uWordCount').html(`<p> Unique Word Count: \n \t ${unique}</p>`);
+  $('.averageLength').html(`<p>Average Word Length: \n \t ${count}</p>`);
+  $('dl').removeClass('hidden');
+  
+})
 
+function averageLength(input){
+  let results = [];
+  let inputs = input.split(' ');
+  let j = 0;
+  let x = inputs.length;
+  for (let i = 0; i < x; i++){
+    j += inputs[i].length;
+  }
+  return j / x;
+  
+}
 
 function uniqueCount(input){
   let results = {};
@@ -41,5 +65,5 @@ function wordCount(input){
   return inputArr.length;
 }
 let testSubmit = 'blue dog blue dog blue dog blue dog red';
-let test1 = uniqueCount(testSubmit);
+let test1 = averageLength(testSubmit);
 console.log(test1);
