@@ -8,19 +8,22 @@
 </head>
 <body>
 <main>
-  <h1>Image Carousel</h1>
-  <div class="hero">
-    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-65/cat1.jpg" alt="" />
-  </div>
-  <div class="thumbnails">
-    <a class="thumbnail"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-65/cat1.jpg" alt="" /></a>
-    <a class="thumbnail"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-65/cat2.jpg" alt="" /></a>
-    <a class="thumbnail"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-65/cat3.jpg" alt="" /></a>
-    <a class="thumbnail"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-65/cat4.jpg" alt="" /></a>
-  </div>
-  <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
-  <script src = 'app.js'></script>
-
+  <h1>Fizz Buzz</h1>
+  <section>
+    <p>In this game, you enter a positive number, and I count from 0 to that number, subbing in "fizz" if it's divisible by 3, "buzz" if it's divisible by 5, and "fizzbuzz" if it's divisible by both</p>
+    <form id="number-chooser" method='post'>
+      <label for="number-choice">Choose a positive number</label>
+      <input id="number-choice" name="number-choice" type="number" required />
+      <input type="submit" />
+    </form>
+  </section>
+  <section>
+    <h2>Results</h2>
+    <div class="js-results"></div>
+  </section>
 </main>
+<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+ <script src ='app.js'></script>
+  
 </body>
 </html>
