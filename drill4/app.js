@@ -21,22 +21,11 @@
 
 //The program should print each of these metrics in the appropriate area in the results section.
 
-$('#overallForm').submit(function(event){
-  event.preventDefault();
-  let list = $('#user-text').val();
-  let average = averageLength(list);
-  let unique = uniqueCount(list);
-  let count = wordCount(list);
-  $('.wordCount').html(`<p> Word Count: \n \t ${count}</p>`);
-  $('.uWordCount').html(`<p> Unique Word Count: \n \t ${unique}</p>`);
-  $('.averageLength').html(`<p>Average Word Length: \n \t ${count}</p>`);
-  $('dl').removeClass('hidden');
-  
-})
 
-function averageLength(input){
-  let results = [];
-  let inputs = input.split(' ');
+
+function averageLength(input1){
+  let results1 = [];
+  let inputs = input1.split(' ');
   let j = 0;
   let x = inputs.length;
   for (let i = 0; i < x; i++){
@@ -46,24 +35,33 @@ function averageLength(input){
   
 }
 
-function uniqueCount(input){
-  let results = {};
-  let inputArr= input.split(' ');
-  for (let i=0;i<=inputArr.length;i++){
-    if (!(inputArr[i] in results)){
-      results[inputArr[i]] = 1;
+function uniqueCount(input2){
+  let results2 = {};
+  let inputArr = input2.split(' ');
+  for (let i=0 ; i < inputArr.length ; i++){
+    if (inputArr[i] in results2){
+      results2[inputArr[i]]++;
     } else {
-      results[inputArr[i]]++;
+      results2[inputArr[i]] = 1;
     }
   }
-  return Object.keys(results).length;
+  return Object.keys(results2).length;
 }
 
-function wordCount(input){
+function wordCount(input3){
   let inputArr = [];
-  inputArr = input.split(' ');
+  inputArr = input3.split(' ');
   return inputArr.length;
 }
-let testSubmit = 'blue dog blue dog blue dog blue dog red';
-let test1 = averageLength(testSubmit);
-console.log(test1);
+$('#overallForm').submit(function(event){
+  event.preventDefault();
+  let list = $('#user-text').val();
+  let average = averageLength(list);
+  let unique = uniqueCount(list);
+  let count = wordCount(list);
+  $('.wordCount').html(`\n \t ${count}`);
+  $('.uWordCount').html(`\n \t ${unique}`);
+  $('.averageLength').html(`\n \t ${average} characters`);
+  $('dl').removeClass('hidden');
+  
+})
